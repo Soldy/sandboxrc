@@ -19,5 +19,6 @@ jspm_packages/
 .jshintrc
 .travis.yml
 .gitattributes
+.nyc_output
 eslint.sh
 
