@@ -2,14 +2,14 @@
 const nanoTest  = new (require('nanoTest')).test({
     'debugPrint' : 'short'
 });
-const sandboxClass = require('./index.js').sandboxClass;
+const sandboxBase = require('./index.js').sandboxBase;
 
 
 nanoTest.add(
     'check simple ',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
                 'test'     : {
                     'function' : function(){
@@ -31,7 +31,7 @@ nanoTest.add(
     'check error',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
                 'test'     : {
                     'function' : ()=>{
@@ -51,7 +51,7 @@ nanoTest.add(
     'check undefined test',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
             });
             let out = await sandbox.check();
@@ -65,7 +65,7 @@ nanoTest.add(
     'check undefined function',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
                 'test'     : {
                     'options'  :[]
@@ -82,7 +82,7 @@ nanoTest.add(
     'check String',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
                 'test'     :  '(()=>{ return "string";})()',
             });
@@ -97,7 +97,7 @@ nanoTest.add(
     'check Legacy',
     {
         'function':async ()=>{
-            let sandbox = new sandboxClass({
+            let sandbox = new sandboxBase({
                 'name'     : 'top',
                 'test'     : function(){
                        return 'Legacy';

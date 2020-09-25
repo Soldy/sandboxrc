@@ -1,9 +1,9 @@
 'use strict';
 
-const sandboxClass = function(testIn){
+const sandboxBase = function(testIn){
     /*
      * @public
-     * object
+     * return object
      */
     this.check = async function(testsIn){
         tests = testsIn;
@@ -137,4 +137,5 @@ const sandboxClass = function(testIn){
 };
 
 
-exports.sandboxClass = sandboxClass;
+exports.sandboxBase = sandboxBase;
+exports.sandboxClass = sandboxBase;
