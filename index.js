@@ -20,53 +20,53 @@ const sandboxClass = function(testIn){
     };
     /*
      * @private
-     * any
+     * @var any
      */
     let test = testIn;
     /*
      * @private
-     * object
+     * @var object
      */
     let tests = {};
     /*
      * @private
-     * object 
+     * @var object 
      */
     let error = false;
     /*
      * @private
-     * object 
+     * @var object 
      */
     let value = false;
     /*
      * @private
-     * object 
+     * @var object 
      */
     let result = 0;
     /*
      * @private
-     * unixmicrotimestamp
+     * @var integer unixmicrotimestamp
      */
     let time = 0;
     /*
      * @private
-     * unixmicrotimestamp
+     * @var unixmicrotimestamp
      */
     let startTime;
     /*
      * @private
-     * unixmicrotimestamp
+     * @var unixmicrotimestamp
      */
     let endTime = 0;
     /*
      * @private
-     * boolean
+     * @var boolean
      */
     let complete = false;
     /*
      * @param string {test}
      * @private
-     * boolean
+     * @var boolean
      *
      */
     let runString = function(){
@@ -77,7 +77,7 @@ const sandboxClass = function(testIn){
     /*
      * @param object {test}
      * @private
-     * boolean
+     * @var boolean
      *
      */
     let runObject = async function (){
@@ -96,7 +96,7 @@ const sandboxClass = function(testIn){
     /*
      * @param function {test}
      * @private
-     * boolean
+     * @var boolean
      *
      */
     let runLegacy = async function(){
@@ -107,7 +107,7 @@ const sandboxClass = function(testIn){
     /*
      * @param any {test}
      * @private
-     * boolean
+     * @var boolean
      *
      */
     let run = async function(){
