@@ -70,9 +70,9 @@ const sandboxBase = function(testIn){
      *
      */
     let runString = function(){
-        startTime = (+new Date());
+        startTime = parseInt(+new Date());
         eval('value = ' + test.test);
-        endTime = (+new Date());
+        endTime = parseInt(+new Date());
     };
     /*
      * @param object {test}
@@ -85,13 +85,13 @@ const sandboxBase = function(testIn){
             (typeof test.test.options === 'undefined')||
             (1 > test.test.options.length)
         ){
-            startTime = (+new Date());
+            startTime = parseInt(+new Date());
             value = await test.test['function']();
         }else{
-            startTime = (+new Date());
+            startTime = parseInt(+new Date());
             value = await test.test['function'](...test.test.options);
         }
-        endTime = (+new Date());
+        endTime = parseInt(+new Date());
     };
     /*
      * @param function {test}
@@ -100,9 +100,9 @@ const sandboxBase = function(testIn){
      *
      */
     let runLegacy = async function(){
-        startTime = (+new Date());
+        startTime = parseInt(+new Date());
         value = await test.test();
-        endTime = (+new Date());
+        endTime = parseInt(+new Date());
     };
     /*
      * @param any {test}
@@ -130,8 +130,8 @@ const sandboxBase = function(testIn){
             error = e;
         }
         if (endTime === 0)
-            endTime = (+new Date());
-        time = (endTime - startTime).toString();
+            endTime = parseInt(+new Date());
+        time = (parseInt(endTime - startTime)).toString();
         return true;
     };
 };
