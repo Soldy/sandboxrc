@@ -131,7 +131,7 @@ const sandboxBase = function(testIn){
         }
         if (endTime === 0)
             endTime = parseInt(+new Date());
-        time = (parseInt(endTime - startTime)).toString();
+        time = Math.abs(parseInt(endTime - startTime)).toString();
         return true;
     };
 };

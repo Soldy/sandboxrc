@@ -1,6 +1,6 @@
 {
   "name": "sandboxrc",
-  "version": "0.9.9-alpha3",
+  "version": "0.9.9-alpha4",
   "description": "nanoTest sandbox.",
   "main": "index.js",
   "scripts": {
