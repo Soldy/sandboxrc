@@ -1,5 +1,12 @@
+/*
+ *  @Soldy\sandboxrc\2021.02.04\GPL3
+ */
 'use strict';
 
+/*
+ * @param {object} testIn 
+ * @prototype
+ */
 const sandboxBase = function(testIn){
     /*
      * @public
@@ -69,7 +76,7 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    let runString = function(){
+    const runString = function(){
         startTime = parseInt(+new Date());
         eval('value = ' + test.test);
         endTime = parseInt(+new Date());
@@ -80,7 +87,7 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    let runObject = async function (){
+    const runObject = async function (){
         if(
             (typeof test.test.options === 'undefined')||
             (1 > test.test.options.length)
@@ -99,7 +106,7 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    let runLegacy = async function(){
+    const runLegacy = async function(){
         startTime = parseInt(+new Date());
         value = await test.test();
         endTime = parseInt(+new Date());
@@ -110,7 +117,7 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    let run = async function(){
+    const run = async function(){
         try { 
             if(typeof test.test === 'undefined'){
                 result = 4;
@@ -137,5 +144,4 @@ const sandboxBase = function(testIn){
 };
 
 
-exports.sandboxBase = sandboxBase;
-exports.sandboxClass = sandboxBase;
+exports.base = sandboxBase;

@@ -2,7 +2,7 @@
 const nanoTest  = new (require('nanoTest')).test({
     'debugPrint' : 'short'
 });
-const sandboxBase = require('./index.js').sandboxBase;
+const sandboxBase = require('./index.js').base;
 
 
 nanoTest.add(
