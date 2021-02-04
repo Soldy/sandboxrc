@@ -1,6 +1,6 @@
 {
   "name": "sandboxrc",
-  "version": "0.9.9-alpha4",
+  "version": "0.9.9-beta10",
   "description": "nanoTest sandbox.",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,7 @@
   "dependencies": {},
   "devDependencies": {
     "interactiveConsole": "0.0.7-alpha0",
-    "nanoTest": "^0.9.9-beta4"
+    "nanoTest": "^0.9.9-beta10"
   },
   "keywords": [],
   "author": "Soldy <npmjs@gidigi.com> (http://gidigi.com)",
