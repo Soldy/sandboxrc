@@ -1,6 +1,6 @@
 {
   "name": "sandboxrc",
-  "version": "0.9.9-beta15",
+  "version": "0.9.9-beta20",
   "description": "nanoTest sandbox.",
   "main": "index.js",
   "scripts": {
@@ -12,14 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "assertrc": "^1.0.2-rc2",
-    "consolebarrc": "0.0.2-rc3",
-    "consolestdiorc": "0.0.2-rc2",
-    "consolestylerc": "0.0.2-rc2",
-    "nano-test-output-cli": "^0.9.9-beta15",
-    "nanoTest": "^0.9.9-beta15",
-    "setuprc": "^0.9.9-beta14",
-    "typehardeningrc": "^0.9.9-beta11"
+    "nanoTest": "^0.9.9-beta21"
   },
   "keywords": [],
   "author": "Soldy <npmjs@gidigi.com> (http://gidigi.com)",

@@ -7,79 +7,79 @@
  * @param {object} testIn 
  * @prototype
  */
-const sandboxBase = function(testIn){
+const sandboxBase = function(test_in){
     /*
      * @public
      * return object
      */
-    this.check = async function(testsIn){
-        tests = testsIn;
-        await run();
+    this.check = async function(tests_in){
+        _tests = tests_in;
+        await _run();
         return {
-            time,
-            startTime,
-            endTime,
-            result,
-            value,
-            error,
-            complete
+            time:_time,
+            startTime:_start_time,
+            endTime:_end_time,
+            result:_result,
+            value:_value,
+            error:_error,
+            complete:_complete
         };
     };
     /*
      * @private
      * @var any
      */
-    let test = testIn;
+    let _test = test_in;
     /*
      * @private
      * @var object
      */
-    let tests = {};
+    let _tests = {};
     /*
      * @private
      * @var object 
      */
-    let error = false;
+    let _error = false;
     /*
      * @private
      * @var object 
      */
-    let value = false;
+    let _value = false;
     /*
      * @private
      * @var object 
      */
-    let result = 0;
+    let _result = 0;
     /*
      * @private
      * @var integer unixmicrotimestamp
      */
-    let time = 0;
+    let _time = 0;
     /*
      * @private
      * @var unixmicrotimestamp
      */
-    let startTime;
+    let _start_time;
     /*
      * @private
      * @var unixmicrotimestamp
      */
-    let endTime = 0;
+    let _end_time = 0;
     /*
      * @private
      * @var boolean
      */
-    let complete = false;
+    let _complete = false;
     /*
      * @param string {test}
      * @private
      * @var boolean
      *
      */
-    const runString = function(){
-        startTime = parseInt(+new Date());
-        eval('value = ' + test.test);
-        endTime = parseInt(+new Date());
+    const _runString = function(){
+        _start_time = parseInt(+new Date());
+        eval('_value = ' + _test.test);
+        _end_time = parseInt(+new Date());
     };
     /*
      * @param object {test}
@@ -87,18 +87,18 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    const runObject = async function (){
+    const _runObject = async function (){
         if(
-            (typeof test.test.options === 'undefined')||
-            (1 > test.test.options.length)
+            (typeof _test.test.options === 'undefined')||
+            (1 > _test.test.options.length)
         ){
-            startTime = parseInt(+new Date());
-            value = await test.test['function']();
+            _start_time = parseInt(Date.now());
+            _value = await _test.test['function']();
         }else{
-            startTime = parseInt(+new Date());
-            value = await test.test['function'](...test.test.options);
+            _start_time = parseInt(Date.now());
+            _value = await _test.test['function'](..._test.test.options);
         }
-        endTime = parseInt(+new Date());
+        _end_time = parseInt(Date.now());
     };
     /*
      * @param function {test}
@@ -106,10 +106,10 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    const runLegacy = async function(){
-        startTime = parseInt(+new Date());
-        value = await test.test();
-        endTime = parseInt(+new Date());
+    const _runLegacy = async function(){
+        _start_time = parseInt(Date.now());
+        _value = await _test.test();
+        _end_time = parseInt(Date.now());
     };
     /*
      * @param any {test}
@@ -117,28 +117,28 @@ const sandboxBase = function(testIn){
      * @var boolean
      *
      */
-    const run = async function(){
+    const _run = async function(){
         try { 
-            if(typeof test.test === 'undefined'){
-                result = 4;
-            }else if(typeof test.test === 'string'){
-                await runString();
-            }else if(typeof test.test === 'object'){
-                if(typeof test.test['function'] === 'undefined'){
-                    result = 4;
+            if(typeof _test.test === 'undefined'){
+                _result = 4;
+            }else if(typeof _test.test === 'string'){
+                await _runString();
+            }else if(typeof _test.test === 'object'){
+                if(typeof _test.test['function'] === 'undefined'){
+                    _result = 4;
                 } else 
-                    await runObject();
+                    await _runObject();
             }else{
-                await runLegacy();
+                await _runLegacy();
             }
-            complete = true;
+            _complete = true;
         }catch(e){
-            result = 3;
-            error = e;
+            _result = 3;
+            _error = e;
         }
-        if (endTime === 0)
-            endTime = parseInt(+new Date());
-        time = Math.abs(parseInt(endTime - startTime)).toString();
+        if (_end_time === 0)
+            _end_time = parseInt(+new Date());
+        _time = Math.abs(parseInt(_end_time - _start_time)).toString();
         return true;
     };
 };
