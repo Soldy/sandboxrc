@@ -1,6 +1,6 @@
 {
   "name": "sandboxrc",
-  "version": "0.9.9-beta20",
+  "version": "0.9.9-beta22",
   "description": "nanoTest sandbox.",
   "main": "index.js",
   "scripts": {
