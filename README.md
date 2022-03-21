@@ -2,13 +2,13 @@
 
 Function runner sandbox. Builded for the nanoTest (what is not so nano any more)
 
-##init 
+## init 
 
 
 
 ```javascript
 
-const sandboxBase = require('sendboxrc').sandboxBase;
+const sandboxBase = require('sandboxrc').sandboxBase;
 let sandbox = new sandboxBase({
     'name'     : 'top',
     'test'     : {
